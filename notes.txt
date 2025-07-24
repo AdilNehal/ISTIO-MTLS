@@ -1,0 +1,9 @@
+ENFORCING STRICT MTLS BETWEEN PODS
+
+PROCESS AFTER 'ISTIOCTL INSTALL'
+
+kubectl label namespace ci istio-injection=enabled --overwrite
+kubectl rollout restart deploy -n ci
+kubectl delete pod -l app=sonarqube -n ci
+kubectl delete pod -l app=jenkins -n ci
+

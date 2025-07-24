@@ -1,0 +1,13 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: only-jenkins-can-access-sonarqube
+  namespace: ci
+spec:
+  selector:
+    matchLabels:
+      app: sonarqube
+  rules:
+  - from:
+    - source:
+        principals: ["cluster.local/ns/ci/sa/jenkins"]

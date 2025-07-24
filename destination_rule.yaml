@@ -1,0 +1,33 @@
+---
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: dr-sonarqube
+  namespace: ci
+spec:
+  host: sonarqube
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: dr-postgres
+  namespace: ci
+spec:
+  host: postgres
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: dr-jenkins
+  namespace: ci
+spec:
+  host: jenkins
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
