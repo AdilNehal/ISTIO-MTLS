@@ -5,7 +5,7 @@ metadata:
   name: dr-sonarqube
   namespace: ci
 spec:
-  host: sonarqube
+  host: quality-sonarqube.ci.svc.cluster.local
   trafficPolicy:
     tls:
       mode: ISTIO_MUTUAL
@@ -16,7 +16,7 @@ metadata:
   name: dr-postgres
   namespace: ci
 spec:
-  host: postgres
+  host: quality-postgresql.ci.svc.cluster.local
   trafficPolicy:
     tls:
       mode: ISTIO_MUTUAL
@@ -27,7 +27,7 @@ metadata:
   name: dr-jenkins
   namespace: ci
 spec:
-  host: jenkins
+  host: jenkins-service.ci.svc.cluster.local
   trafficPolicy:
     tls:
       mode: ISTIO_MUTUAL
